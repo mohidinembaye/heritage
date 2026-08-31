@@ -9,7 +9,7 @@ class Commande extends AbstractEntity
     private float $prixFinal;
 
     private bool $reductionAppliquee;
-  public function __construct(int $id,DateTime $dateCreation, float $prixFinal) {
+  public function __construct(int $id,\DateTimeImmutable $dateCreation, float $prixFinal) {
         parent::__construct($id, $dateCreation);  
         $this->prixFinal = $prixFinal; 
         $this->reductionAppliquee=$reductionAppliquee;           
