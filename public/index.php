@@ -1,21 +1,20 @@
 <?php
-require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-use App\dto\CommandeDTO;
-use App\Entity\Commande;
+declare(strict_types=1);
+
 use App\Model\CommandeRepository;
-use App\Core\Database;
+use App\Service\CommandeService;
+use App\dto\CommandeDTO;
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $dto = new CommandeDTO(
     prixFinal: 15000.0,
     reductionAppliquee: true
 );
 
-$commande = new Commande(0, new \DateTimeImmutable(), $dto->prixFinal, $dto->reductionAppliquee);
+$commandeRepository = new CommandeRepository();
+$commandeService = new CommandeService($commandeRepository);
+$id = $commandeService->enregistrerCommande($dto);
 
-
-$repository = new CommandeRepository();
-$id = $repository->saveCommande($commande);
 echo "Commande enregistrée avec l'id : $id\n";
-
-
