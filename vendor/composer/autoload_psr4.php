@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\dto\\' => array($baseDir . '/src/dto'),
     'App\\Service\\' => array($baseDir . '/src/service'),
     'App\\Model\\' => array($baseDir . '/src/repository'),
     'App\\Http\\' => array($baseDir . '/src/controller'),
