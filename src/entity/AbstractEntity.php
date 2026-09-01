@@ -10,6 +10,6 @@ abstract class AbstractEntity
     public function __construct(int $id, \DateTimeImmutable $dateCreation)
     {
         $this->id = $id;
-        $this->dateCreation = new \DateTimeImmutable();
+        $this->dateCreation = $dateCreation;
     }
 }
